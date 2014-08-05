@@ -1,0 +1,9 @@
+<html>
+<head>
+	<body>
+    <p>Dear <%= @user.name %>, </P>
+	<p> Your Purchase Order has been Completed! Thanks for Shopping with us: </P>
+	<br> Purchase Date : <%= @user.created_at.strftime('%m/%d/%Y %I:%M:%p')%>
+	<br> Store : Techno Optics </br>
+	</body>
+	</html>

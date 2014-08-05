@@ -1,0 +1,28 @@
+<table>
+
+<tr>
+<% count=0 %>
+<% @optics_gallery.each do |optics| %>
+
+<% if (count % 3) == 0%>
+</tr>
+<tr>
+<% end %>
+<% count+=1 %>
+<td><%= image_tag optics.image.url ,:height=>"100",:width=>"100" %><br />
+Name : <%= optics.product_name %><br />
+Brand :<%= optics.brand %><br />
+Description : <%= optics.description %><br />
+Color : <%= optics.color %><br />
+Feature1 :<%= optics.feature1 %><br />
+Feature2 :<%= optics.feature2 %><br />
+Price : <%= optics.price %>
+       
+<%= button_to 'Add to Cart', line_items_path(:store_id => optics.id) %> </td>
+<% end %>
+</tr>
+ 
+</table>
+
+
+

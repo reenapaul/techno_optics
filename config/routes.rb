@@ -1,4 +1,10 @@
 TechnoOptics::Application.routes.draw do
+  resources :line_items
+
+  resources :carts
+
+  resources :stores
+
   get "welcome/index"
 #   resources :accounts
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,9 +16,27 @@ TechnoOptics::Application.routes.draw do
   #get "admin/logout"
   get "accounts/signup"
   get "accounts/login"
+  get "accounts/logout"
   get "accounts/forget_password"
   get "accounts/reset_password"
   get 'accounts/index'
+
+  get "admin/login"
+  get "admin/logout"
+
+  get "gallery/index"
+  get "gallery/search"
+  get "gallery/checkout"
+  get "gallery/purchase_complete"
+  post 'accounts/signup'
+  post 'accounts/login'
+  get "accounts/welcome"
+  post "accounts/forget_password"
+  post "accounts/reset_password"
+
+  post 'admin/login'
+  post  "gallery/search"
+  post  "gallery/checkout"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

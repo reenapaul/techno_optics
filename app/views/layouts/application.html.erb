@@ -8,9 +8,8 @@
 
 </head>
 
-#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-#<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 <body>
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -21,17 +20,32 @@
 				<h1 id="logo"><a title="home" href="#">Sun Glasses</a></h1>
 				<!-- Navigation -->
 				<div id="navigation">
-					<ul>
-						<li><a title="Home" href="#">Home<span></span></a></li>
-						<li><a title="Catalog" href="#">Catalog<span></span></a></li>
-						<li><a title="Blog" href="#">Blog<span></span></a></li>
-						<li><a title=" About Us" href="#">About Us<span></span></a></li>
+					<ul>				  
+             <% unless session[:user] %>
+                      <li><a title="Home" href="#">Home<span></span></a></li>
+                      <li><a href="/accounts/login">Log In</a></li>
+                      <li><a href="/accounts/signup">Sign Up</a></li>
+                      <li><a href="/accounts/forget_password">Forget Password?</a></li>
+                      <li><a href="/accounts/reset_password">Reset Password?</a></li>
+                      <li><a title="Cart" href="#">Cart<span></span></a></li>
+                      <li><a title=" About Us" href="#">About Us<span></span></a></li>
+              <% else %>
+                      <li><a title="Home" href="#">Home<span></span></a></li>
+                      <li><a href="/accounts/logout">Log Out</a></li>
+                      <li><a href="/accounts/reset_password">Reset Password?</a></li>
+                      <li><a title="Cart" href="#">Cart<span></span></a></li>
+                      <li><a title=" About Us" href="#">About Us<span></span></a></li>
+              <% end %>       		
 					</ul>
 				</div>
 				<!-- END Navigation -->
 				<div class="cl"></div>
 				<div id="cart">
-					<p><a title="shopping bag" href="#">shopping bag:&nbsp; 0 items</a></p>
+					<p><%= form_for(:search,:url=>"/gallery/search") do |f| %>
+
+                         Search <input type="text" name="search">
+                         <input type="submit" value="Go">
+                    <% end %></P>
 				</div>
 			</div>	
 		</div>
@@ -48,25 +62,25 @@
 							<li>
 								<img src="/assets/slide.jpg" alt="A man with sun glasses" />
 								<div class="caption">
-									<h2>Some Tittle Gose Here </h2>
-									
-								</div>
-								<div class="cl"></div>
-
-							</li>
-							<li>
-								<img src="/assets/slide.jpg" alt="A man with sun glasses" />
-								<div class="caption">
-									<h2>Some  Here </h2>
-									
+									<h2> Techno Optics </h2>	
+                                    <p>        </P>
+									<h3> The World of Trendy Eye Wears! </h3>
 								</div>
 								<div class="cl"></div>
 							</li>
 							<li>
 								<img src="/assets/slide.jpg" alt="A man with sun glasses" />
 								<div class="caption">
-									<h2>Some Tittle Gose Here </h2>
-									
+									<h2> Clear Vision </h2>		
+									<p>   </p>
+									<h2> New Look! </h2>	
+								</div>
+								<div class="cl"></div>
+							</li>
+							<li>
+								<img src="/assets/slide.jpg" alt="A man with sun glasses" />
+								<div class="caption">
+									<h2> Best Hot Deals!!!! </h2>	
 								</div>
 								<div class="cl"></div>
 							</li>
@@ -84,15 +98,9 @@
 			<!-- Featured Items -->
 			<div class="items">
 				<div class="shell">
-					
-					
 					<!-- Products -->
 					<div class="products">
-			
-					<%= yield %>
-							
-						
-						
+					<%= yield %>	
 					</div>
 					<!-- END Products -->
 				</div>
@@ -221,40 +229,6 @@
 				</div>	
 			</div>	
 			<!-- END Bestsellers -->		
-			<div class="columns">
-				<div class="shell">
-					<div class="post">
-						<div class="col about">
-							<p class="heading">about sunglasses</p>
-							<p>description about sun glasses</p>
-							<a title="Read more" href="#">&raquo;&nbsp;read more</a>
-						</div>
-						<div class="col categories">
-							<p class="heading">categories</p>
-							<ul>
-								<li><a title="Men sunglasses" href="#">Men</a></li>
-								<li><a title="Women sunglasses" href="#">Women</a></li>
-								<li><a title="Children sunglasses" href="#">Childern</a></li>						
-							</ul>
-						</div>
-						<div class="col info">
-							<p class="heading">informations</p>
-							<ul class="first">
-								<li><a title="Shopping Bag" href="#">Shopping Bag</a></li>
-								<li><a title="Returns" href="#">Returns</a></li>
-								<li><a title="Search" href="#">Search</a></li>						
-							</ul>
-							<ul>
-								<li><a title="About Us" href="#">About Us</a></li>
-								<li><a title=" Terms Of Service" href="#"> Terms Of Service</a></li>
-								<li><a title="Privacy Policy" href="#">Privacy Policy</a></li>						
-							</ul>
-						</div>
-						<div class="cl"></div>
-					</div>						
-				</div>					
-			</div>			
-		</div>
 		<!-- END Main  -->
 		<div id="footer-push"></div>
 	</div>
@@ -263,7 +237,7 @@
 	<div id="footer">
 		<div class="shell">
 			<div id="bottom-logo"><a title="home" href="http://css-free-templates.com/">Bottom logo</a></div>
-			<p>Copyright &copy; Company Name 2012. All Rights Reserved. Design by: <a href="http://css-free-templates.com/">CSS Free Templates</a></p>
+			<p>Copyright &copy; Techno Optics. All Rights Reserved. Design by: <a href="http://css-free-templates.com/">Reena Jacob</a></p>
 			<div class="cl"></div>
 		</div>
 	</div>

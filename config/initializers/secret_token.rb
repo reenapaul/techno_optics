@@ -9,7 +9,7 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-#TechnoOptics::Application.config.secret_key_base = 'd860f909039a934370ac1e2e191554bac8e84d42b202412eaca2e831b171421694e580e9b6a74c80599800e5269c90cea04917146b368da661dce0741b13d47f'
+TechnoOptics::Application.config.secret_key_base = 'd860f909039a934370ac1e2e191554bac8e84d42b202412eaca2e831b171421694e580e9b6a74c80599800e5269c90cea04917146b368da661dce0741b13d47f'
 # Be sure to restart your server when you modify this file.
 
 # Your secret key is used for verifying the integrity of signed cookies.
@@ -36,5 +36,5 @@ def secure_token
   end
 end
 
-SampleApp::Application.config.secret_key_base = secure_token
+#SampleApp::Application.config.secret_key_base = secure_token
 
